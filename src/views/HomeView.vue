@@ -1,117 +1,16 @@
-<script>
+<script lang="js">
 import animeEntry from '../components/CatalogEntry.vue'
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
   components: {
     animeEntry 
   },
-  data() {
-    return {
-      animes: [
-        {
-          status: 'Вышло',
-          type: 'Тв-сериал',
-          themes: [
-            {
-              name: 'гении'
-            }
-          ],
-          genres: [
-            {
-              name: "школа"
-            },
-            {
-              name: "романтика"
-            },
-          ],
-          name_en: 'Kaguya-sama wa Kokurasetai: Ultra Romantic',
-          name_ru: 'Госпожа Кагуя: в любви как на войне 3',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-        {
-          status: 'Выходит',
-          type: 'Тв-сериал',
-          themes: [],
-          genres: [],
-          name_en: 'test',
-          name_ru: 'тест',
-          image_url: "https://desu.shikimori.one/system/animes/original/43608.jpg?1666181386",
-        },
-      ]
-    }
-  }
+  mounted() {
+    this.getAnimeList();
+  },
+  computed: mapGetters(['animeList']),
+  methods: mapActions(["getAnimeList"]),
 }
 </script>
 
@@ -174,14 +73,16 @@ export default {
 
         <div class="items-list card-grid">
           <animeEntry 
-            v-for="anime in animes"
+            v-for="anime in animeList"
             :status="anime.status"
             :type="anime.type"
             :themes="anime.themes"
             :genres="anime.genres"
-            :name_en="anime.name_en"
-            :name_ru="anime.name_ru"
-            :image_url="anime.image_url"
+            :name_en="anime.title_en"
+            :name_ru="anime.title_ru"
+            :image_url="anime.images.preview"
+            :routeId="anime.id"
+            :routeName="'anime'"
           />
         </div>
 

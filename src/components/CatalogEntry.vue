@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router'
+
 export default {
   props: {
     status: String,
@@ -7,7 +9,9 @@ export default {
     genres: Array,
     name_en: String,
     name_ru: String,
-    image_url: String, 
+    image_url: String,
+    routeId: Number,
+    routeName: String,
   }
 }
 </script>
@@ -30,16 +34,16 @@ export default {
 
             <div class="card-main_info">Статус: {{status}}</div>
             <div class="card-main_info">Тип: {{type}}</div>
-            <div class="card-main_info" v-if="themes.length > 0">
-              Темы: <span class="tag" v-for="theme in themes">{{theme.name}}</span>
+            <div class="card-main_info" v-if="themes?.length > 0">
+              Темы: <span class="tag" v-for="theme in themes">{{theme.name_ru}}</span>
             </div>
-            <div class="card-main_info" v-if="genres.length > 0">
-              Жанры: <span class="tag" v-for="genre in genres">{{genre.name}}</span>
+            <div class="card-main_info" v-if="genres?.length > 0">
+              Жанры: <span class="tag" v-for="genre in genres">{{genre.name_ru}}</span>
             </div>
         </div>
 
         <div class="desc__footer">
-          <a href="#" class="btn btn-focus">подробнее</a>
+          <RouterLink v-if="routeName" :to="{name: routeName, params: {id: routeId}}" class="btn btn-focus">подробнее</RouterLink>
         </div>
 
         
