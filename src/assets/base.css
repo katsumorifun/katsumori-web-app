@@ -1,0 +1,111 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --c-withe-background: #1d232c;
+  --c-dark-background: #1d232c;
+
+  --с-white-block: #12181f;
+  --с-dark-block: #12181f;
+
+  --c-secondary: #6C757D;
+  --c-secondary-dark: #54595E;
+  --c-secondary-light: #ABB5BE;
+
+  --с-white-navigation: #181e25;
+  --с-dark-navigation: #181e25;
+
+  --с-focus: #3490dc;
+
+  --c-status-success: #28A745;
+  --c-status-danger: #DC3545;
+  --c-status-warning: #FFC107;
+  --c-status-info: #17A2B8;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--c-withe-background);
+  --color-background-block: var(--с-white-block);
+  --color-background-navigation: var(--с-white-navigation);
+  
+  --color-text: #ffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--c-dark-background);
+    --color-background-block: var(--с-dark-block);
+    --color-background-navigation: var(--с-dark-navigation);
+    
+    --color-text: #ffff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.5s, background-color 0.5s;
+  background: var(--color-background);;
+  color: #ffff;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+a,
+h1,
+h2,
+h3,
+h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+}
+a:hover{
+  color: #009BEB;
+}
+section{
+  padding: 0 15px;
+}
+section.main{
+  padding-top: 24px;
+}
+
+@media (min-width: 575.98px){
+  section {
+    padding: 0 calc(50% - 270px);
+  }
+}
+
+@media (min-width: 767.98px){
+  section {
+    padding: 0 calc(50% - 360px);
+  }
+}
+
+@media (min-width: 991.98px) {
+  section {
+    padding: 0 calc(50% - 480px);
+  }
+}
+
+@media (min-width: 1199.98px){
+  section {
+    padding: 0 calc(50% - 590px);
+  }
+}
