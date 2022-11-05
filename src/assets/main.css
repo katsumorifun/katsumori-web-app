@@ -1103,8 +1103,15 @@ p {
 .container > .header > .caption > .caption-button {
   float: right;
 }
-
-
+.tag{
+  color: #FFFF;
+}
+.tag + .tag::before {
+  content: ", ";
+}
+.tag::before:after {
+  content: ", ";
+}
 
 .items-list.card-grid{
   display: grid;
@@ -1167,6 +1174,10 @@ p {
   color: #FFFF;
   border-radius: 5%;
   width: 100%;
+  visibility: hidden;
+}
+.items-list.card-grid > .item > .card-main:hover > .desc {
+  visibility: visible;
 }
 .items-list.card-grid > .item > .card-main > .desc > .desc__header > .main__footer {
   display: none;
@@ -1196,5 +1207,23 @@ p {
   }
   .items-list.card-grid > .item > .card-main > .poster > img {
     width: 160px;
+  }
+  .items-list.card-grid > .item > .card-main > .desc {
+    visibility: visible;
+  }
+  .items-list.card-grid > .item > .card-main > .desc > .desc__footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+  .items-list.card-grid > .item > .card-main > .desc > .desc__footer > .btn{
+    margin: 4px 10px;
+  }
+  .items-list.card-grid > .item > .card-main > .desc {
+    border-radius: 0 5% 5% 0;
+  }
+  .items-list.card-grid > .item > .card-main > .poster > img {
+    border-radius: 5% 0 0 5%;
   }
 }
