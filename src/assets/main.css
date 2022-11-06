@@ -1033,6 +1033,7 @@ p {
 }
 .caption-footer {
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .caption >.caption-title-md {
   font-size: 1.2rem;
