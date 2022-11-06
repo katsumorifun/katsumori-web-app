@@ -1001,6 +1001,13 @@ p {
 .btn-focus {
   background: var(--с-focus);
 }
+.btn-100{
+  display: flex;
+  width: 100%;
+}
+.btn-text-center{
+  text-align: center;
+}
 
 .container {
   padding-bottom: 14px;
@@ -1008,21 +1015,29 @@ p {
 .container > .header > .caption {
   padding-bottom: 4px;
 }
-.container > .header > .caption > .caption-title {
+.caption > .caption-title {
   margin-bottom: 1rem;
 }
 
-.container > .header > .caption >.caption-title-left {
+.caption >.caption-title-left {
   text-align: left;
 }
-.container > .header > .caption >.caption-title-center {
+.caption >.caption-title-center {
   text-align: center;
 }
-
-.container > .header > .caption >.caption-title-md {
+.caption .caption-count {
+  font-size: 13px;
+  font-weight: normal;
+  margin-left: 4px;
+  color: var(--с-focus);
+}
+.caption-footer {
+  padding-top: 1rem;
+}
+.caption >.caption-title-md {
   font-size: 1.2rem;
 }
-.container > .header > .caption > .caption-button {
+.caption > .caption-button {
   float: right;
 }
 .tag{
