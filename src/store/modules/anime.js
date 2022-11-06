@@ -2,8 +2,8 @@ import animeApi from '@/api/anime';
 
 // actions
 const actions = {
-    async getAnimeList(ctx) {
-      let request = await animeApi.getAnime()
+    async getAnimeList(ctx, params) {
+      let request = await animeApi.getAnime(params)
 
       ctx.commit('updateAnimesList', request.data.data)
     }

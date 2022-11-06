@@ -20,8 +20,7 @@ export default {
   <div class="item">
     <div class="card-main">
       <div class="poster">
-        <!-- <img v-lazy-load-img :data-src="poster_url" alt="poster"> -->
-        <img :src="image_url" alt="poster">
+        <img v-lazy-img :data-src="image_url" :alt="name_en">
       </div>
       <!-- <div class="rating">
                         <p>10 \ 10</p>
