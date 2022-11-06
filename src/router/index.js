@@ -7,18 +7,21 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {title: 'Главная', description: "Аниме, манга, ранобэ, визуальные новеллы"}
     },
     {
       path: '/anime',
       name: 'animes',
-      component: () => import('../views/AnimesView.vue')
+      component: () => import('../views/AnimesView.vue'),
+      meta: {title: 'Аниме', description: "Аниме"}
     },
     {
       path: '/anime/:id',
       name: 'anime',
       component: () => import('../views/AnimesView.vue'),
-      props: true
+      props: true,
+      meta: {title: 'Аниме', description: "Аниме"}
     },
   ]
 })
