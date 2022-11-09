@@ -28,7 +28,7 @@ export default {
       <div class="content">
         <div class="catalog-main">
           <div class="caption">
-            <p class="caption-title caption-title-md" v-if="animeMeta">Каталог аниме <span class="caption-count">{{animeMeta.to}} тайтлов</span></p>
+            <p class="caption-title caption-title-md" v-if="animeMeta">Каталог аниме <span class="caption-count">всего тайтов: {{animeMeta.total}}</span></p>
             <p class="caption-footer">Тайтлы отсортированы по рейтингу</p>
           </div>
           <div class="items-list card-grid">

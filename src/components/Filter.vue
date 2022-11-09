@@ -6,23 +6,23 @@ export default {
             statusList: [
                 {
                     "status_id": 1,
-                    "selected": false,
+                    "selected": 0,
                     "name_jp": "",
                     "name_en": "announced",
                     "name_ru": "Анонсировано"
                 },
                 {
                     "status_id": 2,
-                    "selected": false,
+                    "selected": 0,
                     "name_jp": "",
                     "name_en": "ongoing",
                     "name_ru": "Выходит"
                 },
                 {
                     "status_id": 3,
-                    "selected": false,
+                    "selected": 0,
                     "name_jp": "",
-                    "name_en": "released",
+                    "name_en": "finished",
                     "name_ru": "Вышло"
                 },
             ],
@@ -35,13 +35,16 @@ export default {
     watch: {
         statusList: {
             handler(list) {
-                let statusNames = "";
+                let statusNames = ""
 
                 list.forEach((element) => {
-                    if(element.selected === true) {
+                    if(element.selected == 1) {
                         return statusNames+= element.name_en + ","
                     }
-                });
+                    if(element.selected == 2) {
+                        return statusNames+= "!" + element.name_en + ","
+                    }
+                })
 
                 this.query['status'] = statusNames
 
@@ -57,7 +60,22 @@ export default {
             deep: true
         }
     },
-    methods: mapActions(["getAnimeList"]),
+    methods: {
+        select(status) {
+            switch(status.selected) {
+                case 0:
+                    status.selected = 1
+                    break;
+                case 1:
+                    status.selected = 2
+                    break;
+                case 2:
+                    status.selected = 0
+                    break;
+            }
+        },
+        ...mapActions(["getAnimeList"]),
+    },
 }
 
 </script>
@@ -83,9 +101,9 @@ export default {
                     </div>
                     <ul>
                         <li v-for="status in statusList" :key="status.status_id" :title="status.name_ru"
-                            v-bind:class="{ selected: status.selected }">
+                            v-bind:class="{ selected: status.selected == 1, un_selected:  status.selected == 2}">
                             <label>
-                                <input type="checkbox" v-model="status.selected"><span>{{ status.name_ru }}</span>
+                                <input type="checkbox" @click="select(status)"><span>{{ status.name_ru }}</span>
                             </label>
                         </li>
                     </ul>
@@ -146,6 +164,10 @@ export default {
     border-radius: 0.4rem;
 }
 
+.sidebar-widget_input li.un_selected {
+    background: var(--c-status-danger);
+    border-radius: 0.4rem;
+}
 @media(max-width: 769px) {
     .catalog>.content {
         grid-template-columns: 100%;
