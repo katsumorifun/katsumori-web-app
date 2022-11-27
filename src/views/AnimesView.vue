@@ -10,7 +10,10 @@ export default {
     animeEntry,
   },
   mounted() {
-    this.getAnimeList({ limit: 16 });
+    let query = this.$route.query
+    query.limit = 16
+
+    this.getAnimeList(query);
   },
   computed: mapGetters(['animeList', 'animeMeta']),
   methods: mapActions(["getAnimeList"]),
