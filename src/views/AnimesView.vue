@@ -13,15 +13,28 @@ export default {
     let query = this.$route.query
     query.limit = 16
 
-    this.getAnimeList(query);
+    this.getAnimeList(query)
+    
+    let wrapper = document.getElementsByClassName('wrapper')[0]
+    let that = this;
+
+    wrapper.addEventListener('scroll', () => {
+      if (wrapper.scrollTop > document.documentElement.clientHeight - 500) {
+        if(that.page < that.animeMeta.last_page) {
+          query.page = that.page = that.page + 1
+          that.lazyPageAnimeList(query)
+        }
+      }
+    })
   },
   computed: mapGetters(['animeList', 'animeMeta']),
-  methods: mapActions(["getAnimeList"]),
+  methods: mapActions(['getAnimeList', 'lazyPageAnimeList']),
   data() { 
     return {
       openFilter: false,
+      page: 0,
     }
-  }
+  },
 }
 </script>
 
