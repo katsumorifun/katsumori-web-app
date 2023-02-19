@@ -53,7 +53,7 @@ defineProps({
         </div>
         <div class="header-drop user-drop">
           <a class="avatar">
-            <img src="/assets/images/avatars/default.png" alt="#">
+            <!--<img src="/assets/images/avatars/default.png" alt="#"> -->
           </a>
           <div class="header-user-menu drop-menu">
             <!-- <router-link class="line" :to='{name: "user.profile", params: {name: getUserLogin.name}}'>Мой профиль</router-link> -->
