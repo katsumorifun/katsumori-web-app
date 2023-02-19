@@ -11,6 +11,12 @@ services:
       - ./dist:/usr/share/nginx/html
     ports:
       - "8082:80"
+    labels:
+      - traefik.enable=true
+      - traefik.backend=backend-katsumori-web-app-katsumori-web-app
+      - traefik.frontend.rule=Host:katsumori.fun
+      - traefik.docker.network=web
+      - traefik.port=80
     networks:
       - web
 
@@ -20,3 +26,5 @@ services:
       - .:/usr/share/nginx/html:delegated
     working_dir: /usr/share/nginx/html
     entrypoint: ['npm']
+    labels:
+      - traefik.enable=false
