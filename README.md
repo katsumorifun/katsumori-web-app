@@ -29,8 +29,3 @@ npm run dev
 ```sh
 ./docker-start.sh
 ```
-
-### Остановить Docker контейнер
-```sh
-./docker-stop.sh
-```
