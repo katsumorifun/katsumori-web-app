@@ -7,7 +7,7 @@ import axios from 'axios';
 import lazyLoadingImage from "./directive/lazyLoading/image"
 
 
-axios.defaults.baseURL = 'http://127.0.0.1:8081/api';
+axios.defaults.baseURL = 'https://dev.katsumori.fun/api';
 const DEFAULT_TITLE = "Katsumori"
 
 
