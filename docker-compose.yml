@@ -8,15 +8,16 @@ services:
   katsumori-web-app:
     image: nginx
     volumes:
-      - ./dist:/usr/share/nginx/html
+      - ./dist:/usr/share/nginx/html:delegated
+      - ./dockerfiles/nginx/templates:/etc/nginx/templates
     ports:
-      - "8082:80"
+      - "8082:8082"
     labels:
       - traefik.enable=true
       - traefik.backend=backend-katsumori-web-app-katsumori-web-app
       - traefik.frontend.rule=Host:katsumori.fun
       - traefik.docker.network=web
-      - traefik.port=80
+      - traefik.port=8082
     networks:
       - web
 
