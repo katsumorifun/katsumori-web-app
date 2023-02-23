@@ -2,6 +2,7 @@
 import {RouterView } from 'vue-router'
 import navbar from './components/NavBar.vue'
 import pageHeader from './components/PageHeader.vue'
+import footerContainer from './components/Footer.vue'
 </script>
 
 <template>
@@ -20,7 +21,7 @@ import pageHeader from './components/PageHeader.vue'
             <transition name="slide-fade">
                   <RouterView />
                 </transition>
-            <!-- <footer-component></footer-component> -->
+              <footerContainer />
         </div>
     </main>
   </header>

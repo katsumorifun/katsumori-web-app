@@ -172,23 +172,6 @@ img, svg {
 input{
   outline:none;
 }
-footer {
-  margin-top: 0.4rem;
-  padding-top: 1rem;
-  border-top: 1px solid #282828;
-}
-.footer-links > ul {
-  display: flex;
-  list-style-type: none
-}
-.footer-links>ul>li {
-  padding-left: 1rem;
-}
-.footer-links>ul>li>a {
-  font-size: smaller;
-  font-weight: 400;
-  color: #fff;
-}
 .navbar > a{
   color: #009BEB;
 }
