@@ -20,8 +20,8 @@ import footerContainer from './components/Footer.vue'
             <pageHeader />
             <transition name="slide-fade">
                   <RouterView />
-                </transition>
-              <footerContainer />
+            </transition>
+            <footerContainer />
         </div>
     </main>
   </header>

@@ -1,26 +1,26 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+
+  /* Base colors */
   --c-withe-background: #1d232c;
   --c-dark-background: #1d232c;
-
   --с-white-block: #12181f;
   --с-dark-block: #12181f;
+  --c-secondary: #6C757D;
+  --с-white-navigation: #181e25;
+  --с-dark-navigation: #181e25;
+  --с-focus: #3490dc;
 
+  /* Secondary Colors */
   --c-secondary: #6C757D;
   --c-secondary-dark: #54595E;
   --c-secondary-light: #ABB5BE;
 
-  --с-white-navigation: #181e25;
-  --с-dark-navigation: #181e25;
-
-  --с-focus: #3490dc;
-
+  /* Status Colors */
   --c-status-success: #28A745;
   --c-status-danger: #DC3545;
   --c-status-warning: #FFC107;
   --c-status-info: #17A2B8;
-
-  --font-size: 14px;
 }
 
 /* semantic color variables for this project */
@@ -84,33 +84,33 @@ a:hover{
 p{
   font-size: var(--font-size);
 }
-section{
-  padding: 0 15px;
+section {
+  padding-bottom: 14px;
 }
-section.main{
-  padding-top: 24px;
+.layout>.wrapper > .main {
+  padding: 22px 8px 0 8px;
 }
 
 @media (min-width: 575.98px){
-  section {
-    padding: 0 calc(50% - 270px);
+  .layout>.wrapper > .main {
+    padding: 22px calc(50% - 270px) 0 calc(50% - 270px);
   }
 }
 
 @media (min-width: 767.98px){
-  section {
-    padding: 0 calc(50% - 360px);
+  .layout>.wrapper > .main {
+    padding: 22px calc(50% - 360px) 0 calc(50% - 360px);
   }
 }
 
 @media (min-width: 991.98px) {
-  section {
-    padding: 0 calc(50% - 480px);
+  .layout>.wrapper > .main {
+    padding: 22px calc(50% - 480px) 0 calc(50% - 480px);
   }
 }
 
 @media (min-width: 1199.98px){
-  section {
-    padding: 0 calc(50% - 590px);
+  .layout>.wrapper> .main {
+    padding: 22px calc(50% - 590px) 0 calc(50% - 590px);
   }
 }

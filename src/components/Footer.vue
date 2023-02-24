@@ -62,8 +62,6 @@
 
 <style scoped>
     footer {
-        margin-top: 0.4rem;
-        padding-top: 1rem;
         border-top: 1px solid #282828;
         background-color: var(--navigation-color);
     }
@@ -73,7 +71,7 @@
         padding: 6px 0 6px 0;
     }
     footer > .content {
-        padding: 32px 6% 32px 6%;
+        padding: 74px 6% 74px 6%;
         display: flex;
         justify-content: space-evenly;
     }
@@ -133,6 +131,8 @@
     @media(max-width: 854px) {
         footer > .content {
             flex-wrap: wrap;
+            padding-top: 24px;
+            padding-bottom: 24px;
         }
         .footer__widget {
             flex: auto;
@@ -145,10 +145,10 @@
         }
         .footer__widget {
             width: 100%;
-            padding-bottom: 18px;
+            padding-bottom: 32px;
         }
         .footer__widget--social {
-            padding-top: 16px;
+            padding-bottom: 0;
         }
         .footer__widget--social > .footer__links {
             justify-content: space-around;
