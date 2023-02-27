@@ -1,4 +1,17 @@
-<script setup>
+<script>
+
+export default {
+    data () {
+        return {
+            version: APP_VERSION,
+            name: import.meta.env.KATSU_APP_NAME,
+            telegram: import.meta.env.KATSU_SOCIAL_TELEGRAM,
+            discord: import.meta.env.KATSU_SOCIAL_DISCORD,
+            vk: import.meta.env.KATSU_SOCIAL_VK,
+            github: import.meta.env.KATSU_SOCIAL_GITHUB,
+        }
+    }
+}
 
 </script>
 
@@ -29,25 +42,25 @@
         <div class="footer__widget footer__widget--social">
             <div class="footer__links">
                 <li class="footer_link footer__link--social">
-                    <a href="#">
+                    <a :href="telegram">
                         <font-awesome-icon icon="fa-brands fa-telegram" class="icon" />
                     </a>
                 </li>
 
                 <li class="footer_link footer__link--social">
-                    <a href="#">
+                    <a :href="vk">
                         <font-awesome-icon icon="fa-brands fa-vk" class="icon" />
                     </a>
                 </li>
 
                 <li class="footer_link footer__link--social">
-                    <a href="#">
+                    <a :href="discord">
                         <font-awesome-icon icon="fa-brands fa-discord" class="icon" />
                     </a>
                 </li>
 
                 <li class="footer_link footer__link--social">
-                    <a href="#">
+                    <a :href="github">
                         <font-awesome-icon icon="fa-brands fa-github" class="icon" />
                     </a>
                 </li>
@@ -55,7 +68,7 @@
         </div>
     </div>
     <div class="footer__copyright">
-        2023 | Все права защищены Katsumori.
+        2023 Все права защищены {{ name }} | {{ version }}
     </div>
   </footer>
 </template>

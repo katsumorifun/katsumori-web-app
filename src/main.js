@@ -7,9 +7,8 @@ import './assets/main.css'
 import axios from 'axios';
 import lazyLoadingImage from "./directive/lazyLoading/image"
 
-axios.defaults.baseURL = 'https://dev.katsumori.fun/api';
-const DEFAULT_TITLE = "Katsumori"
-
+axios.defaults.baseURL = import.meta.env.KATSU_API_URL;
+const DEFAULT_TITLE = import.meta.env.KATSU_APP_NAME;
 
 const app = createApp(App)
 
