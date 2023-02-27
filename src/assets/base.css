@@ -85,32 +85,32 @@ p{
   font-size: var(--font-size);
 }
 section {
-  padding-bottom: 14px;
+  margin-bottom: 14px;
 }
 .layout>.wrapper > .main {
-  padding: 22px 8px 0 8px;
+  margin: 14px 8px 0 8px;
 }
 
 @media (min-width: 575.98px){
   .layout>.wrapper > .main {
-    padding: 22px calc(50% - 270px) 0 calc(50% - 270px);
+    margin: 14px calc(50% - 270px) 0 calc(50% - 270px);
   }
 }
 
 @media (min-width: 767.98px){
   .layout>.wrapper > .main {
-    padding: 22px calc(50% - 360px) 0 calc(50% - 360px);
+    margin: 14px calc(50% - 360px) 0 calc(50% - 360px);
   }
 }
 
 @media (min-width: 991.98px) {
   .layout>.wrapper > .main {
-    padding: 22px calc(50% - 480px) 0 calc(50% - 480px);
+    margin: 14px calc(50% - 480px) 0 calc(50% - 480px);
   }
 }
 
 @media (min-width: 1199.98px){
   .layout>.wrapper> .main {
-    padding: 22px calc(50% - 590px) 0 calc(50% - 590px);
+    margin: 14px calc(50% - 590px) 0 calc(50% - 590px);
   }
 }

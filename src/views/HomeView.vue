@@ -4,6 +4,8 @@ import newsComponent from '../components/home/news/index.vue'
 import activityComponent from '../components/home/activity/index.vue'
 import sliderComponent from '../components/home/slider/index.vue'
 import buttonComponent from '../components/ui/Button.vue'
+import WarningComponent from '../components/ui/Warn.vue'
+
 
 import { mapGetters, mapActions } from 'vuex';
 
@@ -14,6 +16,7 @@ export default {
     activityComponent,
     sliderComponent,
     buttonComponent,
+    WarningComponent,
   },
   mounted() {
     this.getAnimeList();
@@ -41,6 +44,10 @@ export default {
 
 <template>
   <section class="main">
+    <warning-component class="warning--danger"> 
+      На данный момент сайт находится на стадии разработки. Вы посещаете не финальную версию сайта проекта
+    </warning-component>
+
     <slider-component :items="animeList" />
     <section class="popular-manga">
       <div class="caption">
