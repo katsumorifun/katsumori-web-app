@@ -1,94 +1,163 @@
-<script setup>
-defineProps({
+<script>
 
-})
+import search from './Search.vue'
+
+export default {
+  components: {
+    search
+  }
+}
 </script>
 
 <template>
-      <div class="page-header">
-    <div class="logo ms-4 d-none d-xl-flex">
-      <!-- <router-link :to="{name: 'home'}" aria-current="page">
-        {{($t(title.toLowerCase())).toUpperCase()}}
-      </router-link> -->
-    </div>
-    <div class="header-search ml-2">
-      <label class="search-line">
-        <input placeholder="search" type="search" class="text-center search-box">
-      </label>
-    </div>
+  <div class="page-header">
+    <!-- <div class="logo"> -->
+      <!-- <router-link :to="{ name: 'home' }" aria-current="page"> -->
+        <!-- {{($t(title.toLowerCase())).toUpperCase()}} -->
+        <!-- Katsumori -->
+      <!-- </router-link> -->
+    <!-- </div> -->
+
+    <search />
 
     <div class="user-wrapper">
-      <div class="header-user-panel">
-        <div class="header-drop xs-drop">
-          <div class="icon-inline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-              <path fill="#797C84" d="M9 0c4.95 0 9 4.05 9 9s-4.05 9-9 9-9-4.05-9-9 4.05-9 9-9zm-.15 4.5a.75.75 0 0 0-.75.75V10a.5.5 0 0 0 .5.5h4.24a.66.66 0 0 0 0-1.32H9.6V5.25a.75.75 0 0 0-.75-.75z"></path>
-            </svg>
-          </div>
-          <div class="history drop-menu">
-            <div class="drop-menu-body">
-              <div class="header">Уведомления о новых сериях</div>
-              <div class="body">
-                <div class="empty">Новых серий пока нет.</div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="header-drop xs-drop">
-          <div class="icon-inline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18">
-              <path fill="#797C84" fill-rule="evenodd" d="M8 18c-1.354 0-2.5-.7-2.5-2h5c0 1.3-1.146 2-2.5 2zm5.996-7c0 1.5 2.004 1.5 2.004 2.5 0 .5 0 1.5-2.104 1.5H1.984C0 15 0 14 0 13.5c0-1 1.984-1 2-2.5V8c0-4 2.097-6.5 5-6.9V1c0-.6.5-1 1-1s1 .4 1 1v.1c2.903.4 4.996 2.9 4.996 6.9v3z"></path>
-            </svg>
-          </div>
-
-          <div class="notifications drop-menu">
-            <div class="drop-menu-body">
-              <div class="header">Уведомления</div>
-              <div class="body">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="header-drop user-drop">
-          <a class="avatar">
-            <!--<img src="/assets/images/avatars/default.png" alt="#"> -->
-          </a>
-          <div class="header-user-menu drop-menu">
-            <!-- <router-link class="line" :to='{name: "user.profile", params: {name: getUserLogin.name}}'>Мой профиль</router-link> -->
-            <!-- <router-link class="line" :to='{name: "user.titles", params: {name: getUserLogin.name, category: "anime"}}'>Список аниме</router-link> -->
-            <!-- <router-link class="line" :to='{name: "user.titles", params: {name: getUserLogin.name, category: "light_novel"}}'>Список ранобэ</router-link> -->
-            <!-- <router-link class="line" :to='{name: "user.titles", params: {name: getUserLogin.name, category: "manga"}}'>Список манги</router-link> -->
-            <!-- <router-link class="line" :to='{name: "user.friends", params: {name: getUserLogin.name}}'>Друзья</router-link> -->
-
-            <a href="#" class="line">
-              Сообщения
-            </a>
-            <a href="#" class="line">
-              Настройки
-            </a>
-            <a href="#" class="line">
-              Модерация
-            </a>
-            <a class="line">
-              Выйти
-            </a>
-          </div>
-        </div>
-        <div class="backdrop"></div>
-        <div class="substrate"></div>
-      </div>
-      <!-- <a v-else class="button-auth">
-        <span>authorize')</span>
+      <a class="button-auth">
+        <span>Авторизация</span>
         <div class="icon-inline">
           <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <path d="M8.125,9.81818188 C16.25,9.81818188 16.25,14.2363637 16.25,16.5272728 C16.25,17.6727274 15.925,18.0000001 13.975,18.0000001 L2.4375,18.0000001 C0.4875,18.0000001 5.5067062e-14,17.6727274 5.5067062e-14,16.5272728 L0.000729394906,16.1872748 C0.0162898196,13.7002532 0.36380597,9.81818188 8.125,9.81818188 Z M8.125,3.99680289e-14 C9.91992544,3.99680289e-14 11.375,1.36363583 11.375,4.09090912 C11.375,6.81818241 9.91992544,8.18181824 8.125,8.18181824 C6.33007456,8.18181824 4.875,6.81818241 4.875,4.09090912 C4.875,1.36363583 6.33007456,3.99680289e-14 8.125,3.99680289e-14 Z" id="Combined-Shape" fill="#797C84"></path>
+              <path
+                d="M8.125,9.81818188 C16.25,9.81818188 16.25,14.2363637 16.25,16.5272728 C16.25,17.6727274 15.925,18.0000001 13.975,18.0000001 L2.4375,18.0000001 C0.4875,18.0000001 5.5067062e-14,17.6727274 5.5067062e-14,16.5272728 L0.000729394906,16.1872748 C0.0162898196,13.7002532 0.36380597,9.81818188 8.125,9.81818188 Z M8.125,3.99680289e-14 C9.91992544,3.99680289e-14 11.375,1.36363583 11.375,4.09090912 C11.375,6.81818241 9.91992544,8.18181824 8.125,8.18181824 C6.33007456,8.18181824 4.875,6.81818241 4.875,4.09090912 C4.875,1.36363583 6.33007456,3.99680289e-14 8.125,3.99680289e-14 Z"
+                id="Combined-Shape" fill="#797C84"></path>
             </g>
           </svg>
         </div>
-      </a> -->
+      </a>
     </div>
   </div>
 </template>
+
+
+<style>
+.page-header {
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #282828;
+  transition: background-color .1s ease-in, top .2s ease-in, border-bottom-color .3s ease-in;
+  z-index: 99;
+  background: var(--navigation-color);
+
+}
+
+.page-header.show,
+.page-header.top {
+  opacity: .95;
+  background-color: #272c38
+}
+
+.page-header:hover {
+  opacity: 1;
+  -webkit-transition: opacity .3s ease 0s;
+  transition: opacity .3s ease 0s
+}
+.page-header>.user-wrapper {
+  height: inherit;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.page-header>.user-wrapper>.button-auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 27px 30px;
+  cursor: pointer;
+  color: #d5d5d6;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.page-header>.user-wrapper>.button-auth>.icon-inline {
+  height: 18px;
+  width: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+}
+
+.page-header>.user-wrapper>.button-auth>.icon-inline path {
+  fill: #d5d5d6
+}
+
+.page-header>.user-wrapper>.button-auth>.icon-inline>svg {
+  height: inherit;
+  width: inherit;
+}
+
+.page-header>.user-wrapper>.button-auth:hover {
+  background: rgba(213, 213, 214, .05)
+}
+
+@media(max-width:575.98px) {
+  .page-header>.user-wrapper {
+    width: auto;
+  }
+
+  .page-header>.user-wrapper>.button-auth>.icon-inline {
+    margin-left: 0;
+  }
+
+  .page-header>.user-wrapper>.button-auth>span {
+    display: none;
+  }
+}
+
+.page-header>.user-wrapper>.logging-spinner {
+  padding: 4.5px 30px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.logo {
+  padding: 27px 30px;
+}
+
+.lazy-search input {
+  width: 100%;
+  font-size: 14px;
+  background: inherit;
+  height: 42px;
+  font-family: NeoSansPro-Regular;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.search-line>.icon-inline {
+  padding: 0 10px 0 16px;
+}
+.search-line>.icon-inline.focused>svg path {
+  fill: #fff
+}
+.search-line>.loading {
+  width: 60px;
+  -webkit-transform: scale(.35);
+  transform: scale(.35)
+}
+
+</style>

@@ -1,168 +1,130 @@
 <script lang="js">
 import animeEntry from '../components/CatalogEntry.vue'
-import {mapGetters, mapActions} from 'vuex';
+import newsComponent from '../components/home/news/index.vue'
+import activityComponent from '../components/home/activity/index.vue'
+import sliderComponent from '../components/home/slider/index.vue'
+import buttonComponent from '../components/ui/Button.vue'
+import WarningComponent from '../components/ui/Warn.vue'
+
+
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   components: {
-    animeEntry 
+    animeEntry,
+    newsComponent,
+    activityComponent,
+    sliderComponent,
+    buttonComponent,
+    WarningComponent,
   },
   mounted() {
     this.getAnimeList();
   },
   computed: mapGetters(['animeList']),
   methods: mapActions(["getAnimeList"]),
+  data() {
+    return {
+      news: [
+        {
+          title: 'Обновление сайта | v0.1',
+          content: 'content',
+          poster: 'https://i.ibb.co/TBfzQ5c/1.png',
+        },
+        {
+          title: 'title',
+          content: 'content',
+          poster: 'https://i.ibb.co/TBfzQ5c/1.png',
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <template>
-  <section class="home main">
-    <div class="activity">
-      <div class="container">
-        <div class="header">
-          <div class="caption">
-            <p class="caption-title caption-title-md">Новости проекта</p>
-          </div>
+  <section class="main">
+    <warning-component class="warning--danger"> 
+      На данный момент сайт находится на стадии разработки. Вы посещаете не финальную версию сайта проекта
+    </warning-component>
+
+    <slider-component :items="animeList" />
+    <section class="popular-manga">
+      <div class="caption">
+        <div class="caption-button">
+          <!-- <a class="btn btn-focus">Подробнее</a> -->
+          <button-component class="btn--focus">
+            подробнее
+          </button-component>
         </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="card__header">
-              <p class="title">Моб Психо 100 - 3</p>
-              <p class="description"> Добавлена 5 серия</p>
-            </div>
-            <div class="card__footer padding">
-              <a href="#" class="title">
-                Подробнее
-              </a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card__header">
-              <p class="title">Обновление сайта v0.2</p>
-              <p class="description"> Добавлен новый фильтр</p>
-            </div>
-            <div class="card__footer padding">
-              <a href="#" class="title">
-                Подробнее
-              </a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card__footer">
-              <a href="#" class="title">
-                Вся активность
-              </a>
-            </div>
-          </div>
-        </div>
+        <h1 class="caption-title caption-title-md caption-title-left">Популярная манга</h1>
       </div>
-    </div>
-
-    <div class="left">
-      <div class="container">
-        <div class="header">
-          <div class="caption">
-            <div class="caption-button">
-              <a class="btn btn-focus">Подробнее</a>
-            </div>
-            <p class="caption-title caption-title-md">Популярное аниме</p>
-          </div>
-        </div>
-
-        <div class="items-list card-grid">
-          <animeEntry 
-            v-for="anime in animeList"
-            :status="anime.status"
-            :type="anime.type"
-            :themes="anime.themes"
-            :genres="anime.genres"
-            :name_en="anime.title_en"
-            :name_ru="anime.title_ru"
-            :image_url="anime.images.preview"
-            :routeId="anime.id"
-            :routeName="'anime'"
-          />
-        </div>
-
+      <div class="dev">
+        <p class="dev__title">
+          Раздел находится в разработке
+        </p>
       </div>
-      <div class="container">
-        <div class="header">
-          <div class="caption">
-            <p class="caption-title caption-title-md">Популярная манга</p>
-          </div>
+    </section>
+    <section class="popular-ranobe">
+      <div class="caption">
+        <div class="caption-button">
+          <button-component class="btn--focus">
+            подробнее
+          </button-component>
         </div>
+        <h1 class="caption-title caption-title-md caption-title-left">Популярное ранобэ</h1>
       </div>
-    </div>
+      <div class="dev">
+        <p class="dev__title">
+          Раздел находится в разработке
+        </p>
+      </div>
+    </section>
+    <section class="site-activity">
+      <news-component :news="news" />
+      <activity-component />
+    </section>
     <div>
-
     </div>
   </section>
-
 </template>
   
 <style>
-.home {
+.site-activity {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.home>.activity>.container>.cards {
-  margin-right: 20px;
+.site-activity>.activity {
+  flex: auto;
+  margin-left: 26px;
 }
 
-.home>.left {
-  display: grid;
-  width: 100%;
-}
-
-.home>.activity>.container>.cards>.card {
-  width: 348px;
-}
-@media (max-width: 775px) {
-  .home>.activity>.container>.cards>.card {
+@media(max-width: 1199px) {
+  .site-activity>.news {
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  .home>.activity>.container>.cards {
-    margin-right: 0;
-  }
-  .home>.activity {
-    width: 100%;
-  }
-}
 
-.home>.activity.cards>.title {
-  text-align: left;
-}
-
-@media (max-width: 775px) {
-  .home {
-    flex-direction: column;
-    align-items: center;
+  .site-activity>.activity {
+    margin: 0 0 14px 0;
   }
 }
 
-.card {
-  background: var(--color-background-block);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: .6rem;
-  border-left: 14px solid var(--c-status-danger);
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+@media(min-width: 1199px) {
+  .news__card__cover-image {
+    max-width: 820px;
+  }
 }
 
-.card>.card__header>.title {
-  margin: 0;
-  padding: 0;
-}
-
-.card>.card__header>.description {
-  color: #9590A0;
-  margin: 8px 0 0px 0;
-}
-
-.card>.card__footer.padding {
-  padding-top: 24px;
+.dev {
+  text-align: center;
+  background-color: var(--color-background-block);
+  line-height: 200px;
+  vertical-align: middle;
+  border-radius: 16px;
 }
 </style>
   
