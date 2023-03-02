@@ -481,12 +481,6 @@ p {
   min-height: 80%;
   padding-top: 18px;
 }
-.search-box {
-  background: var(--bg-color);
-  color: white;
-  border: none;
-  width: 100%;
-}
 .art-event {
   display: flex;
   padding: 15px;
@@ -806,15 +800,6 @@ p {
 }
 .caption > .caption-button {
   float: right;
-}
-.tag{
-  color: #FFFF;
-}
-.tag + .tag::before {
-  content: ", ";
-}
-.tag::before:after {
-  content: ", ";
 }
 
 .items-list.card-grid{

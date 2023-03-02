@@ -8,6 +8,9 @@ const anime = {
       params: { ...args },
     });
   },
+  searchAnime(value) {
+    return axios.get(BASE_URL+'/search/' + value);
+  },
 };
 
 export default anime;
